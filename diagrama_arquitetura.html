@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagrama de Arquitetura AppFood</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f5f7;
+            margin: 0;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Topologia em Microsserviços - AppFood</h2>
+        <pre class="mermaid">
+        graph TD
+            Client((Clientes / APP)) -->|Requisição HTTPS| LB[Load Balancer Externo]
+            
+            subgraph Cluster Kubernetes
+                LB --> Front[Pod: Frontend Web/App]
+                
+                Front -->|Comunicação Segregada| Ingress[Ingress / API Gateway]
+                
+                Ingress --> PodUsers[Pod: Módulo de Usuários]
+                Ingress --> PodOrders[Pod: Módulo de Pedidos]
+                Ingress --> PodPay[Pod: Módulo de Pagamentos]
+                Ingress --> PodSales[Pod: Módulo de Vendas]
+                
+                PodUsers --> DBUsers[(DB: PostgreSQL \n Usuários)]
+                PodOrders --> DBOrders[(DB: Redis \n Pedidos)]
+                PodPay --> DBPay[(DB: MySQL \n Pagamentos)]
+                PodSales --> DBSales[(DB: PostgreSQL \n Vendas)]
+                
+                subgraph Telemetria e Observabilidade
+                    Prometheus[Prometheus: Coleta Pull]
+                    Grafana[Grafana: Dashboards]
+                    
+                    Prometheus -. "Raspa métricas" .-> PodUsers
+                    Prometheus -. "Raspa métricas" .-> PodOrders
+                    Prometheus -. "Raspa métricas" .-> PodPay
+                    Prometheus -. "Raspa métricas" .-> PodSales
+                    
+                    Grafana -. "Lê dados" .-> Prometheus
+                end
+            end
+            
+            Nodes[Nodes do Cluster - Servidores Físicos] -.- Cluster Kubernetes
+        </pre>
+    </div>
+</body>
+</html>

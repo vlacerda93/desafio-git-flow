@@ -1,0 +1,7 @@
+## Introdução
+
+Esta Atividade Prática Supervisionada representa uma continuidade dos conceitos desenvolvidos durante as aulas práticas da Formação DevOps e Infraestrutura. Ao longo das atividades anteriores, foi possível compreender os fundamentos da arquitetura baseada em microsserviços, bem como a utilização de ferramentas essenciais para o desenvolvimento, versionamento e implantação de aplicações modernas.
+
+Nesta etapa, os conhecimentos adquiridos são aplicados em um cenário mais próximo da realidade do mercado, utilizando como estudo de caso a startup fictícia AppFood. O desafio consiste em planejar a migração de uma aplicação monolítica para uma arquitetura baseada em microsserviços, adotando práticas de Engenharia DevOps para garantir maior escalabilidade, disponibilidade, segurança e facilidade de manutenção.
+
+Durante o desenvolvimento deste trabalho serão abordados conceitos como organização ágil por meio de Kanban, automação de pipelines de CI/CD, conteinerização com Docker, orquestração utilizando Kubernetes e implementação de observabilidade através do Prometheus e Grafana. Dessa forma, a atividade consolida os conteúdos vistos em sala de aula e demonstra como essas tecnologias trabalham de forma integrada para atender às necessidades de sistemas distribuídos modernos.
