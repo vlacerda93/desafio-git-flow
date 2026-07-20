@@ -129,3 +129,7 @@ margin: 0.5rem 0;
 color: var(--accent-green);
 font-size: 0.875rem;
 }
+.trend.negative {
+color: var(--accent-blue);
+font-size: 0.875rem;
+}
