@@ -9,3 +9,20 @@ background-color: #0f172a;
 color: #f8fafc;
 min-height: 100vh;
 }
+@media (max-width: 1024px) {
+.kpi-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (max-width: 768px) {
+.app-layout {
+grid-template-columns: 1fr;
+grid-template-rows: auto 70px 1fr;
+}
+.sidebar {
+display: none;
+}
+.kpi-grid {
+grid-template-columns: 1fr;
+}
+}
