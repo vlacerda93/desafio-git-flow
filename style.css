@@ -86,3 +86,20 @@ padding: 0.5rem 1rem;
 border-radius: 20px;
 font-weight: bold;
 }
+.content-area {
+padding: 2rem;
+overflow-y: auto;
+}
+.dashboard-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 2rem;
+}
+.status-badge {
+background-color: rgba(74, 222, 128, 0.1);
+color: var(--accent-green);
+padding: 0.5rem 1rem;
+border-radius: 20px;
+font-size: 0.875rem;
+}
