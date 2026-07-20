@@ -115,3 +115,17 @@ padding: 1.5rem;
 border-radius: 12px;
 border: 1px solid var(--border-color);
 }
+.kpi-card h3 {
+color: var(--text-muted);
+font-size: 0.875rem;
+text-transform: uppercase;
+}
+.kpi-card .value {
+font-size: 2rem;
+font-weight: bold;
+margin: 0.5rem 0;
+}
+.trend.positive {
+color: var(--accent-green);
+font-size: 0.875rem;
+}
