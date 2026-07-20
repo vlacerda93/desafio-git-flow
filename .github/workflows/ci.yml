@@ -1,0 +1,14 @@
+name: CI Validate
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate Code
+        run: |
+          echo "Simulando teste automatizado do código..."
